@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context allowCasualMultipartParsing="true">
+    <Resource name="jdbc/festivalko"
+              type="javax.sql.DataSource"
+              auth="Container"
+              maxTotal="100"
+              maxIdle="30"
+              maxWaitMillis="10000"
+              url="jdbc:mysql://localhost:3306/festivalko?useUnicode=true&amp;characterEncoding=utf-8"
+              driverClassName="com.mysql.jdbc.Driver"
+              username="root"
+              password="jordan!()^">
+    </Resource>
+</Context>
