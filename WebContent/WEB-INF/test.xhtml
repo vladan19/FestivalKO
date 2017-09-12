@@ -10,13 +10,15 @@
     </h:head>
     <h:body>
         <ui:insert name="header">
-        	<ui:include src="WEB-INF/components/header.xhtml"></ui:include>
+        	<ui:include src="components/header.xhtml"></ui:include>
         </ui:insert>
-        <ui:insert name="main">
-        	<ui:include src="WEB-INF/partials/login_form.xhtml"></ui:include>
-        </ui:insert>
+        <b:row>
+        	<h1>#{loggedUser.username}</h1>
+        	<p>#{loggedUser.firstName}</p>
+        	<p>#{loggedUser.lastName}</p>
+        </b:row>
         <ui:insert name="footer">
-        	<ui:include src="WEB-INF/components/footer.xhtml"></ui:include>
+        	<ui:include src="components/footer.xhtml"></ui:include>
         </ui:insert>
     </h:body>
 </html>

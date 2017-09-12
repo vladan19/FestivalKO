@@ -3,6 +3,14 @@ package net.etfbl.ip.festivalko.model;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+
+import net.etfbl.ip.festivalko.dao.UserDAO;
+import net.etfbl.ip.festivalko.dao.impl.DAOFactory;
+
+@ManagedBean(name="loggedUser", eager=true)
+@SessionScoped
 public class User implements Model<Integer>, Serializable {
 
 	/**
@@ -11,11 +19,11 @@ public class User implements Model<Integer>, Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private int id;
-	private String firstName;
+	private String firstName = "Vladan";
 	private String lastName;
 	private String jmbg;
 	private String email;
-	private UserType type;
+	private UserType type = UserType.GUEST;
 	private String pictureUri;
 	private String username;
 	private String password;

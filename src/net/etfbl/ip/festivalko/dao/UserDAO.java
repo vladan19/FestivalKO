@@ -15,4 +15,6 @@ public interface UserDAO extends GenericDAO<User, Integer> {
 
 	@Override
 	boolean exists(Integer primaryKey);
+	
+	User findByUsername(String username);
 }

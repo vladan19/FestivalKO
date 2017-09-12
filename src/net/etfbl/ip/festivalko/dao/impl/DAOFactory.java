@@ -3,6 +3,7 @@ package net.etfbl.ip.festivalko.dao.impl;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.faces.bean.ApplicationScoped;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -10,6 +11,7 @@ import javax.sql.DataSource;
 
 import net.etfbl.ip.festivalko.dao.UserDAO;
 
+@ApplicationScoped
 public class DAOFactory {
 	private static final Logger LOGGER = Logger.getLogger(DAOFactory.class.getName());
 	

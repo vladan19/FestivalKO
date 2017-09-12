@@ -100,4 +100,29 @@ public class MyUserDAO extends BaseDAO<User, Integer> implements UserDAO {
 	String getTableName() {
 		return "user";
 	}
+
+	@Override
+	public User findByUsername(String username) {
+		Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        User u = null;
+
+        try {
+            connection = dataSource.getConnection();
+            preparedStatement = connection.prepareStatement("SELECT * FROM " + getTableName() + " WHERE username = ?");
+            preparedStatement.setObject(1, username);
+            resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                u = create(resultSet);
+            }
+
+            return u;
+        } catch (SQLException e) {
+            LOGGER.log(Level.WARNING, e.getMessage(), e);
+            return null;
+        } finally {
+            close(resultSet, preparedStatement, connection);
+        }
+	}
 }

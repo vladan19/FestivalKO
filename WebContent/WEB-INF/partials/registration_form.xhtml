@@ -1,0 +1,59 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:b="http://bootsfaces.net/ui"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+                
+	<b:form id="registrationForm" enctype="multipart/form-data">
+		<b:row>
+			<b:inputText value="#{registerController.firstName}" id="first_name" binding="#{firstNameComponent}" tabindex="1" required="true" requiredMessage="Please enter your first name!" colXs="12" colMd="6" placeholder="First name">
+				<f:passThroughAttribute name="required" value="required" />
+			</b:inputText>
+			<b:inputText value="#{registerController.lastName}" id="last_name" binding="#{lastNameComponent}" tabindex="2" required="true" requiredMessage="Please enter your last name!" colXs="12" colMd="6" placeholder="Last name">
+				<f:passThroughAttribute name="required" value="required" />
+			</b:inputText>
+		</b:row>
+		
+		<b:message for="first_name" />
+        <b:message for="last_name" />
+        
+        <b:row>
+        	<b:inputText value="#{registerController.jmbg}" id="jmbg" binding="#{jmbgComponent}" tabindex="3" required="true" requiredMessage="Please enter your JMBG!" colXs="12" placeholder="JMBG">
+				<f:passThroughAttribute name="required" value="required" />
+			</b:inputText>
+        </b:row>
+        
+        <b:message for="jmbg" />
+        
+        <b:row>
+        	<b:inputText value="#{registerController.email}" id="email" binding="#{emailComponent}" tabindex="4" required="true" requiredMessage="Please enter your email!" colXs="12" placeholder="Email">
+				<f:passThroughAttribute name="required" value="required" />
+			</b:inputText>
+        </b:row>
+        
+        <b:message for="email" />
+        
+        <b:row>
+        	<b:inputText value="#{registerController.username}" id="username" binding="#{usernameComponent}" tabindex="5" required="true" requiredMessage="Please enter your username!" colXs="12" placeholder="Username">
+				<f:passThroughAttribute name="required" value="required" />
+			</b:inputText>
+        </b:row>
+        
+        <b:message for="username" />
+        
+        <b:row>
+        	<b:inputSecret value="#{registerController.password}" id="password" binding="#{passwordComponent}" tabindex="6" required="true" requiredMessage="Please enter your password!" colXs="12" colMd="6" placeholder="Password">
+                <f:passThroughAttribute name="required" value="required" />
+            </b:inputSecret>
+            <b:inputSecret value="#{registerController.confirmPassword}" id="confirm_password" tabindex="7" binding="#{confirmPasswordComponent}" required="true" requiredMessage="Please enter your password." colXs="12" colMd="6" placeholder="Confirm password">
+                <f:attribute name="passwordInput" value="#{passwordComponent}" />
+            </b:inputSecret>
+        </b:row>
+        
+        <b:row>
+        	<h:inputFile id="picture" value="#{registerController.picture}" />
+        </b:row>
+        
+        <b:commandButton action="#{registerController.register}" tabindex="8" type="submit" value="Sign up" look="primary" />
+	</b:form>
+</ui:composition>

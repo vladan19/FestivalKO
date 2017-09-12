@@ -1,0 +1,24 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:b="http://bootsfaces.net/ui"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+                
+	<b:form id="loginForm">
+        <b:row>
+        	<b:inputText value="#{loginController.username}" id="username" binding="#{usernameComponent}" tabindex="1" required="true" requiredMessage="Please enter your username!" colXs="12" placeholder="Username">
+				<f:passThroughAttribute name="required" value="required" />
+			</b:inputText>
+        </b:row>
+        
+        <b:message for="username" />
+        
+        <b:row>
+        	<b:inputSecret value="#{loginController.password}" id="password" binding="#{passwordComponent}" tabindex="2" required="true" requiredMessage="Please enter your password!" colXs="12" placeholder="Password">
+                <f:passThroughAttribute name="required" value="required" />
+            </b:inputSecret>
+        </b:row>
+        
+        <b:commandButton action="#{loginController.login}" tabindex="3" type="submit" value="Login" look="primary" />
+	</b:form>
+</ui:composition>
