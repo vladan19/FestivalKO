@@ -1,0 +1,31 @@
+<pretty-config xmlns="http://ocpsoft.org/schema/rewrite-config-prettyfaces"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://ocpsoft.org/schema/rewrite-config-prettyfaces
+                      http://ocpsoft.org/xml/ns/prettyfaces/rewrite-config-prettyfaces.xsd">
+
+    <url-mapping id="login">
+        <pattern value="/login/"/>
+        <view-id value="/WEB-INF/views/login.xhtml"/>
+    </url-mapping>
+
+    <url-mapping id="registration">
+        <pattern value="/registration/"/>
+        <view-id value="/WEB-INF/views/registration.xhtml"/>
+    </url-mapping>
+    
+    <url-mapping id="dashboard-genere-manager">
+        <pattern value="/dashboard/genere-manager/"/>
+        <view-id value="/WEB-INF/dashboard/views/genere_manager.xhtml"/>
+    </url-mapping>
+    
+    <url-mapping id="dashboard-genere">
+        <pattern value="/dashboard/genere/"/>
+        <view-id value="/WEB-INF/dashboard/views/genere.xhtml"/>
+    </url-mapping>
+
+    <url-mapping id="dashboard-genere-edit">
+        <pattern value="/dashboard/genere/#{name : genereBean.name }/"/>
+        <view-id value="/WEB-INF/dashboard/views/genere.xhtml"/>
+        <action>#{genereBean.edit}</action>
+    </url-mapping>
+</pretty-config>

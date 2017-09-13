@@ -1,0 +1,17 @@
+<ui:composition template="/WEB-INF/templates/default.xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:b="http://bootsfaces.net/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:v="http://festivalko.com/facelets">
+
+    <ui:define name="main">
+        <b:row>
+            <b:column colXs="12" colSm="10" colMd="8" colLg="6" styleClass="m-auto f-none">
+                <v:module title="Registration">
+                    <ui:include src="/WEB-INF/partials/registration_form.xhtml" />
+                </v:module>
+            </b:column>
+        </b:row>
+    </ui:define>
+
+</ui:composition>

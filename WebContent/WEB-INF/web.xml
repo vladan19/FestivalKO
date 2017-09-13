@@ -4,6 +4,11 @@
   <welcome-file-list>
       <welcome-file>home.jsf</welcome-file>
   </welcome-file-list>
+  
+  	<context-param>
+    	<param-name>javax.faces.FACELETS_LIBRARIES</param-name>
+        <param-value>/WEB-INF/custom_tags/module.taglib.xml</param-value>
+  	</context-param>
    
    <servlet>
       <servlet-name>Faces Servlet</servlet-name>

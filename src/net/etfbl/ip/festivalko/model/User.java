@@ -6,9 +6,6 @@ import java.time.LocalDateTime;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-import net.etfbl.ip.festivalko.dao.UserDAO;
-import net.etfbl.ip.festivalko.dao.impl.DAOFactory;
-
 @ManagedBean(name="loggedUser", eager=true)
 @SessionScoped
 public class User implements Model<Integer>, Serializable {

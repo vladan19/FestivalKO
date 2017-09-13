@@ -17,7 +17,7 @@ import net.etfbl.ip.festivalko.model.UserType;
 import net.etfbl.ip.festivalko.utility.CryptographyUtility;
 
 @ManagedBean(name = "registerController")
-@RequestScoped
+@ViewScoped
 public class RegisterController implements Serializable{
 	/**
 	 * 
@@ -85,18 +85,20 @@ public class RegisterController implements Serializable{
 	public void register() {
 		String pictureUri = null;
 		
-		//TODO: Dodati provjeru da li je picture null
-		try(InputStream input = picture.getInputStream()){
-			pictureUri = CryptographyUtility.hash(username.getBytes()).replaceAll("/", "#");
-			String name = picture.getSubmittedFileName();
-			String[] splitted = name.split("\\.");
-			
-			//Adding extension
-			pictureUri += "." + splitted[splitted.length - 1];
-			
-			//TODO: Promjeniti da cita putanju iz configa
-			Files.copy(input, new File("D:\\eclipse-workspace"+File.separator+"ServerFS"+File.separator+"userPictures"+File.separator+pictureUri).toPath());
-		} catch (Exception e) {
+		if (picture!=null) {
+			try(InputStream input = picture.getInputStream()){
+				pictureUri = CryptographyUtility.hash(username.getBytes()).replaceAll("/", "#");
+				String name = picture.getSubmittedFileName();
+				String[] splitted = name.split("\\.");
+				
+				//Adding extension
+				pictureUri += "." + splitted[splitted.length - 1];
+				
+				//TODO: Promjeniti da cita putanju iz configa
+				Files.copy(input, new File("D:\\eclipse-workspace"+File.separator+"ServerFS"+File.separator+"userPictures"+File.separator+pictureUri).toPath());
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		User u = new User();
 		u.setFirstName(firstName);

@@ -1,0 +1,45 @@
+<ui:composition template="/WEB-INF/dashboard/templates/default.xhtml"
+				xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:b="http://bootsfaces.net/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:v="http://festivalko.com/facelets">
+
+	<ui:define name="main">
+		<v:module title="Genere manager">
+			<b:form id="genere_manager_form">
+				<b:row>
+                    <b:column colXs="7">
+                        <b:buttonGroup styleClass="control-btn-group">
+                            <h:outputLink styleClass="b btn btn-primary" value="/FestivalKOApp/dashboard/genere/">
+                                <b:iconAwesome name="plus" styleClass="mr-2" />
+                                <h:outputText value="New" />
+                            </h:outputLink>
+                            <b:commandButton action="#{genereManager.edit}" value="Edit" iconAwesome="edit" styleClass="b" />
+                            <b:commandButton ajax="true" actionListener="#{genereManager.delete}" update="genere_table" value="Delete" styleClass="b" iconAwesome="trash" />
+                        </b:buttonGroup>
+                    </b:column>
+
+                    <b:column colXs="5" styleClass="text-right">
+
+                    </b:column>
+                </b:row>
+
+                <b:column colXs="12" styleClass="v-divider" />
+                
+                <b:dataTable id="genere_table" widgetVar="genereTable" ajax="true" value="#{genereManager.generes}" var="genere" pageLength="20" select="true" selectionMode="multiple"
+                             onselect="ajax:genereManager.select(genere, typeOfSelection, indexes);"
+                             ondeselect="ajax:genereManager.deselect(genere, typeOfSelection, indexes);">
+
+                    <b:dataTableColumn value="#{genere.name}">
+                        <f:facet name="header">
+                            <b:iconAwesome styleClass="mr-2" name="music" />
+                            <h:outputText value="Name" />
+                        </f:facet>
+                    </b:dataTableColumn>
+                    
+                </b:dataTable>
+			</b:form>
+		</v:module>
+	</ui:define>
+</ui:composition>

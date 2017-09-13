@@ -14,7 +14,7 @@ import net.etfbl.ip.festivalko.model.User;
 import net.etfbl.ip.festivalko.utility.PasswordUtility;
 
 @ManagedBean(name = "loginController")
-@RequestScoped
+@ViewScoped
 public class LoginController implements Serializable{
 	/**
 	 * 

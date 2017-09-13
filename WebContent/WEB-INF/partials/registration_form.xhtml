@@ -2,7 +2,8 @@
                 xmlns:b="http://bootsfaces.net/ui"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:h="http://java.sun.com/jsf/html"
-                xmlns:f="http://xmlns.jcp.org/jsf/core">
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
                 
 	<b:form id="registrationForm" enctype="multipart/form-data">
 		<b:row>
@@ -51,7 +52,7 @@
         </b:row>
         
         <b:row>
-        	<h:inputFile id="picture" value="#{registerController.picture}" />
+        	<h:inputFile id="picture" value="#{registerController.picture}"  />
         </b:row>
         
         <b:commandButton action="#{registerController.register}" tabindex="8" type="submit" value="Sign up" look="primary" />
